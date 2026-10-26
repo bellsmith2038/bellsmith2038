@@ -1,386 +1,1093 @@
+
 /* ==========================================
-   STEP 3 · CSS พื้นฐาน: สี ฟอนต์ ตัวแปร
+   01 · GLOBAL | สี ฟอนต์ และค่าพื้นฐาน
    ========================================== */
 
-/* ตัวแปรสี (เปลี่ยนที่เดียว เปลี่ยนทั้งเว็บ) */
+/* สีหลักของเว็บไซต์ */
 :root {
-  --paper: #282828;   /* สีดำอ่อนๆ พื้นหลังหลัก */
-  --card: #EFE6D4;    /* สีการ์ด */
-  --ink: #30AFFF;     /* สีตัวอักษร */
-  --muted: #FFFFFF;   /* สีตัวอักษรรอง */
-  --red: #C8321F;     /* สีเน้น: หัวไม้ขีด */
+  --background: #171717;
+  --cards: #262626;
+  --text: #FFFFFF;
+  --accent: #70B237;
 
-  --font-display: 'Big Shoulders Display', Impact, sans-serif;
-  --font-body: 'Anuphan', Tahoma, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  /* ฟอนต์ */
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Anuphan', sans-serif;
+  --font-mono: 'Montserrat', sans-serif;
 }
 
-/* ให้ width รวม padding และ border เสมอ (Box Model) */
+/* ตั้งค่าขนาดกล่อง */
 * {
   box-sizing: border-box;
 }
 
+/* เลื่อนหน้าแบบนุ่มนวล */
+html {
+  width: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+/* พื้นหลังและข้อความทั้งเว็บไซต์ */
 body {
+  width: 100%;
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  overflow-x: clip;
+
+  background: var(--background);
+  color: var(--text);
+
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
 }
 
-h1, h2, h3 {
+/* หัวข้อพื้นฐาน */
+h1,
+h2,
+h3 {
   margin: 0;
   line-height: 1.1;
 }
 
+/* ลิงก์ */
 a {
   color: inherit;
 }
 
-/* ป้ายตัวเล็กเหนือหัวข้อ */
+/* รูปภาพพื้นฐาน */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ข้อความหัวข้อขนาดเล็กสีเขียว */
 .eyebrow {
   margin: 0;
+  color: var(--accent);
+
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--red);
 }
-
-
 
 
 /* ==========================================
-   STEP 4 · Header และเมนู ด้วย Flexbox
+   02 · HEADER | โลโก้และเมนูนำทาง
    ========================================== */
+
+/* กล่อง Header */
 .site-header {
   display: flex;
-  flex-direction: column;   /* มือถือ: เรียงแนวตั้ง */
+  flex-direction: column;
   gap: 12px;
+
   padding: 16px 20px;
-  background: var(--ink);
-  color: var(--card);
+
+  background: #262626;(--background);
 }
 
+/* โลโก้ MINECRAFT MOBS */
 .logo {
   font-family: var(--font-display);
   font-size: 32px;
   font-weight: 900;
   letter-spacing: 0.02em;
   text-decoration: none;
+
+  transition: opacity 0.25s ease;
 }
 
+/* คำว่า MOBS สีเขียว */
 .logo span {
-  color: var(--red);
+  color: var(--accent);
 }
 
+/* เอฟเฟกต์โลโก้ */
+.logo:hover {
+  opacity: 0.8;
+}
+
+/* กล่องเมนู */
 .menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;           /* ที่ไม่พอให้ขึ้นบรรทัดใหม่ */
-  gap: 8px;
 }
 
+/* ปุ่ม HOME / COLLECTION / ABOUT */
 .menu a {
   display: block;
+
   padding: 10px 16px;
-  min-height: 44px;          /* ปุ่มใหญ่พอให้นิ้วกด */
-  border: 1px solid rgba(239, 230, 212, 0.35);
+  min-height: 44px;
+
+  border: 1px solid transparent;
   border-radius: 999px;
+
   font-family: var(--font-mono);
   font-size: 14px;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
+/* ปุ่มเมนูที่ถูกเลือก */
 .menu a.active {
-  background: var(--red);
-  border-color: var(--red);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--background);
 }
 
+/* แถบสีเขียวใต้ Header */
+.striker {
+  height: 14px;
+  background: var(--accent);
+}
 
+/* เอฟเฟกต์เมนูเมื่อชี้เมาส์ */
+@media (hover: hover) {
+  .menu a:not(.active):hover {
+    background: transparent;
+    border-color: transparent;
+    color: var(--accent);
+
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 8px;
+  }
+}
 
 
 /* ==========================================
-   STEP 5 · บทนำ + Typography
+   03 · HOME | ภาพพื้นหลังและหัวข้อหลัก
    ========================================== */
+
+/* พื้นที่ HOME */
 .intro {
-  max-width: 1200px;
-  margin: 0 auto;            /* จัดกล่องไว้กลางจอ */
-  padding: 40px 20px 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+
+  padding:
+    80px
+    max(20px, calc((100% - 1120px) / 2))
+    80px;
+
+  /* ภาพพื้นหลัง Minecraft */
+  background-image:
+    linear-gradient(
+      rgba(23, 23, 23, 0.75),
+      rgba(23, 23, 23, 0.85)
+    ),
+    url("images/minecraft.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+/* หัวข้อ MOB COLLECTION */
 .intro h1 {
   font-family: var(--font-display);
-  font-size: 56px;
+  font-size: clamp(40px, 8vw, 120px);
   font-weight: 900;
-  text-transform: uppercase;
+
   line-height: 0.9;
-  overflow-wrap: anywhere;   /* คำยาวเกินจอให้ตัดบรรทัดได้ */
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
+/* คำอธิบายเว็บไซต์ */
 .lead {
-  max-width: 60ch;           /* บรรทัดไม่ยาวเกินไป อ่านง่าย */
+  max-width: 60ch;
   margin: 0;
+
+  color: var(--text);
   font-size: 18px;
-  color: var(--muted);
 }
 
+/* กล่องปุ่มกรองหมวดหมู่ */
 .filters {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
+/* ปุ่ม ALL / PASSIVE / NEUTRAL / HOSTILE / BOSS */
 .filters a {
   display: block;
   padding: 6px 14px;
-  border: 2px solid var(--ink);
+
+  border: 2px solid var(--text);
   border-radius: 999px;
+
   font-size: 14px;
   text-decoration: none;
 }
 
+/* ปุ่มหมวดหมู่ที่เลือก */
 .filters a.active {
-  background: var(--ink);
-  color: var(--card);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--background);
 }
 
-
-
-
+/* เอฟเฟกต์เมื่อชี้ปุ่มหมวดหมู่ */
+@media (hover: hover) {
+  .filters a:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--background);
+  }
+}
 
 
 /* ==========================================
-   STEP 6 · การ์ดแกลเลอรี + รูปภาพ
+   04 · FEATURED MOB | Creeper ตัวใหญ่
    ========================================== */
 
-/* รูปไม่ล้นกล่อง (Flexible Images) */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* โครงสร้าง Featured */
+.featured {
+  display: grid;
+  gap: 20px;
+
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  min-width: 0;
 }
 
+/* กล่องรูป Creeper */
+.featured-image {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 0;
+  min-height: 350px;
+  padding: 32px;
+
+  border: 1px solid #3b3b3b;
+  border-radius: 6px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #34452a 0%,
+      #262626 65%
+    );
+
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* รูป Creeper */
+.featured-image img {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 350px;
+
+  object-fit: contain;
+  object-position: center;
+
+  filter:
+    drop-shadow(0 18px 20px rgba(0, 0, 0, 0.45));
+
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.5s ease;
+}
+
+/* กล่องข้อมูล Creeper */
+.featured-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  min-width: 0;
+  padding: 24px;
+
+  background: var(--cards);
+  color: var(--text);
+
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+}
+
+/* ชื่อ CREEPER */
+.featured-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* คำอธิบาย Creeper */
+.featured-text p {
+  margin: 0;
+}
+
+/* ข้อมูล HP / TYPE / LOCATION */
+.meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* แต่ละช่องข้อมูล */
+.meta li {
+  min-width: 0;
+  padding-top: 8px;
+
+  border-top: 1px solid var(--accent);
+  overflow-wrap: anywhere;
+}
+
+/* หัวข้อ HP / TYPE / LOCATION */
+.meta b {
+  display: block;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+
+/* ------------------------------------------
+   04.1 · CREEPER GLOW EFFECT
+   แสงสีเขียวและวงพลังงาน
+   ------------------------------------------ */
+
+/* แสงด้านหลัง Creeper */
+.featured-image::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+
+  width: 75%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(112, 178, 55, 0.55) 0%,
+      rgba(112, 178, 55, 0.18) 40%,
+      transparent 70%
+    );
+
+  opacity: 0;
+  transform: scale(0.5);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.7s ease;
+}
+
+/* วงพลังงาน Creeper */
+.featured-image::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+
+  width: 55%;
+  aspect-ratio: 1;
+
+  border: 2px solid rgba(112, 178, 55, 0.6);
+  border-radius: 50%;
+
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+/* เอฟเฟกต์เมื่อชี้ Creeper */
+@media (hover: hover) {
+  .featured-image:hover {
+    border-color: var(--accent);
+
+    box-shadow:
+      0 0 20px rgba(112, 178, 55, 0.35),
+      0 0 60px rgba(112, 178, 55, 0.15),
+      inset 0 0 40px rgba(112, 178, 55, 0.12);
+  }
+
+  .featured-image:hover::before {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  .featured-image:hover::after {
+    animation: creeper-pulse 1.8s ease-out infinite;
+  }
+
+  .featured-image:hover img {
+    transform: translateY(-12px) scale(1.12);
+
+    filter:
+      drop-shadow(0 0 15px rgba(112, 178, 55, 0.75))
+      drop-shadow(0 20px 25px rgba(0, 0, 0, 0.6));
+  }
+}
+
+/* การขยายวงพลังงาน Creeper */
+@keyframes creeper-pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+
+/* ==========================================
+   05 · MOB COLLECTION | การ์ดม็อบทั้งหมด
+   ========================================== */
+
+/* พื้นที่แสดงม็อบ */
 .gallery {
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px 20px 56px;
 }
 
+/* หัวข้อ ALL MOBS */
 .section-title {
   margin-bottom: 16px;
+
+  font-family: var(--font-display);
   font-size: 22px;
 }
 
-/* มือถือ: 1 คอลัมน์ (Mobile-first) */
+/* ตกแต่งหัวข้อ ALL MOBS */
+.gallery .section-title {
+  position: relative;
+  display: inline-block;
+
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+/* เส้นสีเขียวใต้หัวข้อ */
+.gallery .section-title::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 68px;
+  height: 4px;
+
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+/* Grid จัดเรียงการ์ดม็อบ */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+
+  min-width: 0;
 }
 
+/* กล่องการ์ดม็อบ */
 .card {
-  margin: 0;                 /* figure มี margin มาให้ ต้องล้างออก */
-  padding: 12px;
-  background: var(--card);
-  border-radius: 6px;
-}
+  --mob-glow: 112, 178, 55;
 
-.card img {
-  width: 100%;
-  aspect-ratio: 4 / 5;       /* ทุกรูปสัดส่วนเท่ากัน */
-  object-fit: cover;         /* ตัดรูปให้เต็มกรอบ ไม่บิดเบี้ยว */
-}
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
-.card figcaption {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 12px;
-  padding: 12px 4px 4px;
-}
-
-.no {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--red);
-}
-
-.card h3 {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.card p {
-  width: 100%;
-  margin: 0;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-
-
-
-/* ==========================================
-   STEP 7 · ชิ้นเด่น (Featured)
-   ========================================== */
-.featured {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: grid;
-  gap: 20px;
-}
-
-.featured img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-.featured-text {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 24px;
-  background: var(--ink);
-  color: var(--card);
-  border-radius: 6px;
-}
-
-.featured-text h2 {
-  font-family: var(--font-display);
-  font-size: 56px;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.featured-text p {
-  margin: 0;
-}
-
-.meta {
-  list-style: none;
+  min-width: 0;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  background: var(--cards);
+  border: 1px solid #383838;
+  border-radius: 8px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* รูปม็อบในการ์ด */
+.card img {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 300px;
+  padding: 24px;
+
+  object-fit: contain;
+  object-position: center;
+  background: #303030;
+
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.5s ease;
+}
+
+/* พื้นที่ข้อความใต้รูป */
+.card figcaption {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   gap: 8px;
+
+  padding: 20px;
+}
+
+/* ชื่อประเภท HOSTILE / PASSIVE / ฯลฯ */
+.no {
+  color: var(--accent);
+
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
-.meta li {
-  padding-top: 8px;
-  border-top: 1px solid rgba(239, 230, 212, 0.35);
+/* ชื่อม็อบ */
+.card h3 {
+  margin: 0 0 12px;
+
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
-.meta b {
-  display: block;
-  font-weight: 400;
-  color: #E2A090;
+/* กล่องข้อมูล HP และสถานที่พบ */
+.mob-details {
+  margin-top: auto;
+  padding-top: 12px;
+
+  border-top: 1px solid #444444;
 }
 
-.site-footer {
-  padding: 24px 20px;
-  background: var(--ink);
-  color: var(--card);
+/* แถวข้อมูลแต่ละรายการ */
+.mob-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 6px 0;
+}
+
+/* หัวข้อ HP / สถานที่พบ */
+.mob-info span {
+  flex-shrink: 0;
+
+  color: #AAAAAA;
+  font-family: var(--font-body);
   font-size: 14px;
 }
 
-.site-footer p {
-  margin: 0;
+/* ค่าข้อมูล HP / สถานที่ */
+.mob-info strong {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+
+  text-align: right;
+  overflow-wrap: anywhere;
 }
 
 
+/* ------------------------------------------
+   05.1 · MOB GLOW EFFECT
+   แสงสีเขียวด้านหลังม็อบ
+   ------------------------------------------ */
 
+/* แสงสีเขียว */
+.card::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
 
+  top: 30px;
+  left: 50%;
 
+  width: 65%;
+  aspect-ratio: 1;
+  border-radius: 50%;
 
+  background:
+    radial-gradient(
+      circle,
+      rgba(var(--mob-glow), 0.7) 0%,
+      rgba(var(--mob-glow), 0.25) 40%,
+      transparent 75%
+    );
 
+  filter: blur(12px);
+  opacity: 0;
 
+  transform: translateX(-50%) scale(0.5);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.7s ease;
+
+  pointer-events: none;
+}
+
+/* วงพลังงานสีเขียว */
+.card::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+
+  top: 45px;
+  left: 50%;
+
+  width: 50%;
+  aspect-ratio: 1;
+
+  border: 2px solid rgba(var(--mob-glow), 0.85);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 15px rgba(var(--mob-glow), 0.5);
+
+  opacity: 0;
+  transform: translateX(-50%) scale(0.6);
+
+  pointer-events: none;
+}
+
+/* เอฟเฟกต์การ์ดเมื่อชี้เมาส์ */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+
+    box-shadow:
+      0 0 20px rgba(112, 178, 55, 0.45),
+      0 0 50px rgba(112, 178, 55, 0.2),
+      0 15px 30px rgba(0, 0, 0, 0.45);
+  }
+
+  /* แสงขยาย */
+  .card:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.7);
+  }
+
+  /* รูปม็อบลอยขึ้น */
+  .card:hover img {
+    transform: translateY(-12px) scale(1.12);
+
+    filter:
+      drop-shadow(0 0 18px rgba(112, 178, 55, 0.85))
+      drop-shadow(0 20px 25px rgba(0, 0, 0, 0.6));
+  }
+
+  /* วงพลังงานขยาย */
+  .card:hover::after {
+    animation: mob-energy-pulse 1.6s ease-out infinite;
+  }
+}
+
+/* Animation วงพลังงาน */
+@keyframes mob-energy-pulse {
+  0% {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(0.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.9);
+  }
+}
 
 
 /* ==========================================
-   STEP 8 · Responsive ด้วย Media Queries
-   เขียนแบบ Mobile-first: ค่าด้านบนคือมือถือ
-   แล้วเพิ่มของสำหรับจอใหญ่ทีละขั้น
+   06 · SEARCH | ระบบค้นหาม็อบ
    ========================================== */
 
-/* ป้ายบอกขนาดจอ (ช่วยทดสอบ ลบออกก่อนส่งงาน) */
-body::after {
-  content: "MOBILE · ต่ำกว่า 768px";
-  position: fixed;
-  right: 12px;
-  bottom: 12px;
-  padding: 6px 12px;
-  background: var(--red);
-  color: #FFFFFF;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  border-radius: 999px;
+/* กล่องค้นหา */
+.search-box {
+  position: relative;
+
+  width: 100%;
+  margin: 0 0 36px;
 }
 
-/* แท็บเล็ต: 768px ขึ้นไป */
-@media (min-width: 768px) {
-  body::after {
-    content: "TABLET · 768px ขึ้นไป";
-  }
+/* ช่องพิมพ์ค้นหา */
+.search-box input {
+  width: 100%;
 
+  /* เว้นพื้นที่ด้านซ้ายให้แว่นขยาย */
+  padding: 18px 22px 18px 52px;
+
+  background: #202020;
+  color: var(--text);
+
+  border: 1px solid #444444;
+  border-radius: 10px;
+  outline: none;
+
+  font-family: var(--font-display);
+  font-size: 16px;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* ข้อความ Search mobs... */
+.search-box input::placeholder {
+  color: var(--text);
+  opacity: 0.6;
+}
+
+/* เอฟเฟกต์เมื่อคลิกช่องค้นหา */
+.search-box input:focus {
+  background: #262626;
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 0 3px rgba(112, 178, 55, 0.12),
+    0 0 22px rgba(112, 178, 55, 0.15);
+}
+
+/* วงกลมของแว่นขยายด้านซ้าย */
+.search-box::after {
+  content: "";
+  position: absolute;
+
+  left: 22px;
+  top: 50%;
+
+  width: 13px;
+  height: 13px;
+
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+
+  transform: translateY(-65%);
+  pointer-events: none;
+}
+
+/* ด้ามจับแว่นขยาย */
+.search-box::before {
+  content: "";
+  position: absolute;
+
+  left: 34px;
+  top: calc(50% + 5px);
+
+  width: 9px;
+  height: 2px;
+
+  background: var(--accent);
+  transform: rotate(45deg);
+
+  pointer-events: none;
+}
+
+/* ข้อความเมื่อค้นหาไม่พบ */
+.no-results {
+  margin: 0 0 24px;
+  padding: 24px;
+
+  background: var(--cards);
+  border: 1px solid #444444;
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+/* ซ่อนข้อความเมื่อยังไม่จำเป็น */
+.no-results[hidden] {
+  display: none;
+}
+
+
+/* ==========================================
+   07 · ABOUT | ข้อมูลเว็บไซต์
+   ========================================== */
+
+/* พื้นที่ ABOUT */
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 60px 20px 80px;
+
+  border-top: 1px solid #383838;
+  scroll-margin-top: 24px;
+}
+
+/* หัวข้อ ABOUT THIS COLLECTION */
+.about h2 {
+  margin: 16px 0 24px;
+
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+/* คำอธิบายโปรเจกต์ */
+.about-description {
+  max-width: 650px;
+  margin: 0;
+
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* กล่องสถิติ 12 / 04 / 01 */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  margin-top: 40px;
+}
+
+/* การ์ดสถิติ */
+.about-stat {
+  position: relative;
+  overflow: hidden;
+
+  padding: 28px;
+
+  background: var(--cards);
+  border: 1px solid #383838;
+  border-radius: 10px;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* เส้นสีเขียวบนการ์ด */
+.about-stat::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 28px;
+
+  width: 40px;
+  height: 3px;
+
+  background: var(--accent);
+  border-radius: 0 0 4px 4px;
+}
+
+/* ตัวเลขสีเขียว */
+.about-stat span {
+  display: block;
+
+  color: var(--accent);
+
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.2;
+
+  transition: transform 0.3s ease;
+}
+
+/* ข้อความ MOBS / CATEGORIES / COLLECTION */
+.about-stat p {
+  margin: 8px 0 0;
+
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* เอฟเฟกต์การ์ดสถิติ */
+@media (hover: hover) {
+  .about-stat:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+
+    box-shadow:
+      0 0 20px rgba(112, 178, 55, 0.15),
+      0 12px 25px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+/* ==========================================
+   08 · FOOTER | ส่วนท้ายเว็บไซต์
+   ========================================== */
+
+/* พื้นที่ Footer */
+.site-footer {
+  position: relative;
+
+  margin-top: 40px;
+  padding: 32px max(20px, calc((100% - 1120px) / 2));
+
+  background: #111111;
+  color: #AAAAAA;
+
+  border-top: 1px solid #383838;
+
+  font-size: 14px;
+}
+
+/* ข้อความ Footer */
+.site-footer p {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+/* แถบสีเขียวด้านล่างสุด */
+.site-footer::after {
+  content: "";
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: var(--accent);
+}
+
+/* ลิงก์ Footer */
+@media (hover: hover) {
+  .site-footer a:hover {
+    color: var(--accent);
+  }
+}
+
+
+/* ==========================================
+   09 · RESPONSIVE | ปรับตามขนาดหน้าจอ
+   ========================================== */
+
+/* ------------------------------------------
+   DESKTOP / TABLET · 768px ขึ้นไป
+   ------------------------------------------ */
+
+@media (min-width: 768px) {
+
+  /* HEADER */
   .site-header {
-    flex-direction: row;               /* เมนูมาอยู่แถวเดียวกับโลโก้ */
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 16px 40px;
   }
 
-  .intro,
+  /* ระยะขอบเนื้อหา */
   .featured,
   .gallery {
     padding-left: 40px;
     padding-right: 40px;
   }
 
+  /* การ์ดม็อบ 2 คอลัมน์ */
   .grid {
-    grid-template-columns: 1fr 1fr;    /* 2 คอลัมน์ */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* Featured 2 คอลัมน์ */
   .featured {
-    grid-template-columns: 1fr 1fr;    /* รูปซ้าย ข้อความขวา */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* ABOUT */
+  .about {
+    padding: 80px 40px 100px;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* FOOTER */
   .site-footer {
     display: flex;
     justify-content: space-between;
-    padding: 24px 40px;
   }
 }
 
-/* เดสก์ท็อป: 1024px ขึ้นไป */
-@media (min-width: 1024px) {
-  body::after {
-    content: "DESKTOP · 1024px ขึ้นไป";
-  }
 
+/* ------------------------------------------
+   DESKTOP · 1024px ขึ้นไป
+   ------------------------------------------ */
+
+@media (min-width: 1024px) {
+
+  /* การ์ดม็อบ 3 คอลัมน์ */
   .grid {
-    grid-template-columns: repeat(3, 1fr);   /* 3 คอลัมน์ */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
   }
 
+  /* สัดส่วน Featured */
   .featured {
     grid-template-columns: 5fr 7fr;
   }
@@ -392,47 +1099,226 @@ body::after {
 }
 
 
+/* ------------------------------------------
+   TABLET · 768px - 1023px
+   ------------------------------------------ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  /* โลโก้ */
+  .logo {
+    font-size: 26px;
+  }
+
+  /* เมนู */
+  .menu {
+    gap: 8px;
+  }
+
+  .menu a {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  /* Featured */
+  .featured-text {
+    padding: 28px;
+  }
+
+  .featured-image img {
+    height: 300px;
+  }
+
+  /* รูปม็อบ */
+  .card img {
+    height: 280px;
+  }
+}
 
 
+/* ------------------------------------------
+   MOBILE · 767px ลงมา
+   ------------------------------------------ */
+
+@media (max-width: 767px) {
+
+  /* HEADER */
+  .site-header {
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo {
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .menu {
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .menu a {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  /* HOME */
+  .intro {
+    gap: 20px;
+    padding: 60px 20px;
+  }
+
+  .intro h1 {
+    font-size: clamp(36px, 10vw, 64px);
+    line-height: 1;
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+
+  /* CATEGORY FILTERS */
+  .filters {
+    gap: 8px;
+  }
+
+  .filters a {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* FEATURED CREEPER */
+  .featured {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .featured-image {
+    min-height: 280px;
+    padding: 20px;
+  }
+
+  .featured-image img {
+    height: 260px;
+  }
+
+  .featured-text {
+    padding: 24px;
+  }
+
+  .featured-text h2 {
+    font-size: 36px;
+  }
+
+  .meta {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    font-size: 11px;
+  }
+
+  /* MOB COLLECTION */
+  .gallery {
+    padding: 30px 20px 50px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card img {
+    height: 280px;
+  }
+
+  /* SEARCH */
+  .search-box input {
+    font-size: 14px;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 50px 20px 70px;
+  }
+
+  .about h2 {
+    font-size: 34px;
+  }
+
+  .about-description {
+    font-size: 15px;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .about-stat {
+    padding: 24px;
+  }
+
+  /* FOOTER */
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 20px;
+    gap: 12px;
+  }
+}
+
+
+/* ------------------------------------------
+   SMALL MOBILE · 380px ลงมา
+   ------------------------------------------ */
+
+@media (max-width: 380px) {
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .menu a {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .intro h1 {
+    font-size: 34px;
+  }
+
+  .featured-text h2 {
+    font-size: 30px;
+  }
+
+  .card img {
+    height: 240px;
+  }
+}
 
 
 /* ==========================================
-   STEP 9 · เก็บรายละเอียด
+   10 · ACCESSIBILITY | ลดการเคลื่อนไหว
    ========================================== */
 
-/* แถบกระดาษทรายข้างกล่องไม้ขีด */
-.striker {
-  height: 14px;
-  background: repeating-linear-gradient(45deg, #5A3B22 0 6px, #2E1E12 6px 12px);
-}
-
-/* หัวข้อใหญ่ขึ้นตามความกว้างจอ แต่มีค่าต่ำสุด–สูงสุด */
-.intro h1 {
-  font-size: clamp(56px, 12vw, 168px);
-}
-
-/* hover เฉพาะอุปกรณ์ที่มีเมาส์ */
-.card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-@media (hover: hover) {
-  .card:hover {
-    transform: translateY(-6px) rotate(-1deg);
-    box-shadow: 0 10px 0 var(--ink);
-  }
-
-  .menu a:hover,
-  .filters a:hover {
-    background: var(--red);
-    border-color: var(--red);
-    color: #FFFFFF;
-  }
-}
-
-/* เคารพผู้ใช้ที่ตั้งค่าลดการเคลื่อนไหว */
 @media (prefers-reduced-motion: reduce) {
-  .card {
+
+  /* ปิด Transition ของเอฟเฟกต์หลัก */
+  .featured-image,
+  .featured-image::before,
+  .featured-image img,
+  .card,
+  .card::before,
+  .card img,
+  .about-stat,
+  .about-stat span {
     transition: none;
+  }
+
+  /* ปิด Animation วงพลังงาน */
+  .featured-image:hover::after,
+  .card:hover::after {
+    animation: none;
   }
 }

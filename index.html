@@ -1,184 +1,660 @@
+
 <!DOCTYPE html>
 <html lang="th">
-    <head>
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Collection · Matchbox Labels</title>
+
+<head>
+  <!-- ==========================================
+       01 · ตั้งค่าพื้นฐานเว็บไซต์
+       ========================================== -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ชื่อเว็บไซต์บนแท็บ Browser -->
+  <title>Minecraft Mob Collection</title>
 
 
- <!-- ฟอนต์จาก Google Fonts (Step 3) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600&family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- รูปภาพตัวอย่างเวลาแชร์ลิงก์เว็บไซต์ -->
+  <meta property="og:type" content="website">
 
+  <meta property="og:title"
+      content="Minecraft Mob Collection">
 
+  <meta property="og:description"
+      content="Explore the world of Minecraft Mobs.">
 
+  <meta property="og:image"
+      content="https://bellsmith-f1fc6.web.app/images/creeper00.jpg">
 
+  <meta property="og:url"
+      content="https://bellsmith-f1fc6.web.app/">
 
+  <!-- ไอคอนบนแท็บเว็บไซต์ (Favicon) -->
+  <link rel="icon" type="image/jpeg" href="images/creeper00.jpg">
 
-        <link rel="stylesheet" href="style.css">
+  <!-- ฟอนต์ภาษาไทยและภาษาอังกฤษ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  <!-- เชื่อมต่อไฟล์ CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-     <!-- ===== ส่วนหัว: โลโก้ + เมนู ===== -->
-<header class="site-header">
-  <a class="logo" href="#">Cardfight<span>vanguard</span></a>
-  <nav>
-    <ul class="menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Story</a></li>
-      <li><a class="active" href="#">Collection</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
-  </nav>
-</header>
 
+  <!-- ==========================================
+       02 · HEADER | โลโก้และเมนูนำทาง
+       ========================================== -->
 
-<div class="striker"></div>
+  <header class="site-header">
 
-<main>
-  <!-- ===== บทนำของหน้า ===== -->
-  <section class="intro">
-    <p class="eyebrow">Collection · 9 ชิ้น</p>
-    <h1>BLASTER BLADE ARCHIVE</h1>
-    <p class="lead">พื้นที่รวบรวมข้อมูลร่างต่างๆของยูนิต Blaster Blade จาก อนิมเมะการ์ดเกม cardfight vanguard ที่ปรากฎตัวมาตลอด 15 ปี </p>
-    <ul class="filters">
-      <li><a class="active" href="#">ทั้งหมด</a></li>
-      <li><a href="#">Cardfight vanguard คืออะไร</a></li>
-      <li><a href="#">Card Sets</a></li>
-      <li><a href="#">ข้อมูลการ์ด</a></li>
-    </ul>
-  </section>
+    <!-- โลโก้เว็บไซต์ -->
+    <a class="logo" href="#home">
+      MINECRAFT<span>MOBS</span>
+    </a>
 
-  <!-- ===== ชิ้นเด่น ===== -->
-  <section class="featured">
-    <img src="images/BB10.png" alt="ฉลาก Sunrise พื้นเหลือง พระอาทิตย์สีแดงกำลังขึ้น">
-    <div class="featured-text">
-      <p class="eyebrow">ชิ้นโปรด DZ-SS14 Start Deck Blaster Blade (Aichi)</p>
-      <h2>blaster blade aichi icon</h2>
-      <p>การกลับมาอีกครั้งของ ตัวละครเอกตั้งแต่ภาคแรกเมื่อปี 2011 ในรอบ 15 ปี ซึ่งการมาของ Blaster Blade Icon ในครั้งนี้ทำให้ เมต้าในการแข่งขันเปลี่ยนไปอย่างมาก การ์ดที่ใช้งานง่ายมากกว่าเดิมทำให้รอยัล ติด TOP แข่งตั้งแต่ตอนนั้นเป็นต้นมา</p>
-      <ul class="meta">
-        <li><b>ปี</b> 2026</li>
-        <li><b>ประเภทการ์ด</b> Normal Unit</li>
-        <li><b>จำนวนที่ใส่ได้</b> 4 ใบ</li>
+    <!-- เมนูนำทาง -->
+    <nav>
+      <ul class="menu">
+        <li><a class="active" href="#home">HOME</a></li>
+        <li><a href="#collection">COLLECTION</a></li>
+        <li><a href="#about">ABOUT</a></li>
       </ul>
-    </div>
-  </section>
+    </nav>
 
-  <!-- ===== แกลเลอรี ===== -->
-  <section class="gallery">
-    <h2 class="section-title">ทั้งหมด</h2>
-    <div class="grid">
-      <figure class="card">
-        <img src="images/BB01.png" alt="ฉลาก Sunrise พระอาทิตย์สีแดงบนพื้นเหลือง">
-        <figcaption>
-          <span class="no">No.01</span>
-          <h3>Blaster Blade</h3>
-          <p>Trial Deck Vol. 01: Blaster Blade (VG-TD01)</p>
-        </figcaption>
-      </figure>
-      <figure class="card">
-        <img src="images/BB02.png" alt="ฉลาก Night Star ดาวสีเหลืองบนพื้นน้ำเงิน">
-        <figcaption>
-          <span class="no">No.02</span>
-          <h3>blaster blade spirit</h3>
-          <p>Booster Pack Clash of the Knights & Dragons (BT09)</p>
-        </figcaption>
-      </figure>
-      <figure class="card">
-        <img src="images/BB03.png" alt="ฉลาก Crescent พระจันทร์เสี้ยวบนพื้นดำ">
-        <figcaption>
-          <span class="no">No.03</span>
-          <h3>Blaster Blade Liberator</h3>
-          <p>Trial Deck 8: Liberator of the Sanctuary (TD08)</p>
-        </figcaption>
-      </figure>
-      <figure class="card">
-        <img src="images/BB04.png" alt="ฉลาก Wave เส้นคลื่นสีน้ำเงิน">
-        <figcaption>
-          <span class="no">No.04</span>
-          <h3>Star-vader, Blaster Joker</h3>
-          <p>Masked Rider Booster Movie Pack 1: Neon Messiah (MBT01)</p>
-        </figcaption>
-      </figure>
-      <figure class="card">
-        <img src="images/BB05.png" alt="ฉลาก Mountain ภูเขาสองลูกบนพื้นแดง">
-        <figcaption>
-          <span class="no">No.05</span>
-          <h3>blaster blade Exceed</h3>
-          <p> G Legend Deck 3 : The Blaster "Aichi Sendou (G-LD03)</p>
-        </figcaption>
-      </figure>
-      <figure class="card">
-        <img src="images/BB06.png" alt="ฉลาก Bloom ดอกไม้กลีบแดง">
-        <figcaption>
-          <span class="no">No.06</span>
-          <h3>blaster blade burst</h3>
-          <p>Burst Deck - VZ/001</p>
-        </figcaption>
-      </figure>
-      <figure class="card">
-        <img src="images/BB07.png" alt="ฉลาก Diamond ลายข้าวหลามตัดสีดำ">
-        <figcaption>
-          <span class="no">No.07</span>
-          <h3>blaster blade v series</h3>
-          <p>V Trial Deck 01: Aichi Sendou  (V-TD01)</p>
-        </figcaption>
-      </figure>
-      <figure class="card">
-        <img src="images/BB08.png" alt="ฉลาก Stripe ลายเส้นทแยงบนพื้นแดง">
-        <figcaption>
-          <span class="no">No.08</span>
-          <h3>blaster blade d series</h3>
-          <p>D Booster Set 05: Triumphant Return of the Brave Heroes (DBT05)</p>
-        </figcaption>
-      </figure>
-      <figure class="card">
-        <img src="images/BB09.png" alt="ฉลาก Target วงกลมซ้อนสีแดงบนพื้นน้ำเงิน">
-        <figcaption>
-          <span class="no">No.09</span>
-          <h3>blaster blade the vanguard</h3>
-          <p>D Promo Cards D-PR/859</p>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-</main>
+  </header>
 
-<!-- ===== ส่วนท้าย ===== -->
-<footer class="site-footer">
-  <p>[นายพงสธร ป้อมบุบผา] · [68066551]</p>
-  <p>GAD23867 Coding for Graphic Design · ข้อมูลในหน้านี้เป็นตัวอย่างสมมติ</p>
-</footer>
-  
+  <!-- แถบสีเขียวใต้ Header -->
+  <div class="striker"></div>
 
 
+  <!-- ==========================================
+       MAIN | เนื้อหาหลักของเว็บไซต์
+       ========================================== -->
+
+  <main id="home">
+
+    <!-- ==========================================
+         03 · HOME | หัวข้อและตัวกรองหมวดหมู่
+         ========================================== -->
+
+    <section class="intro">
+
+      <!-- ข้อความเล็กเหนือหัวข้อ -->
+      <p class="eyebrow">MINECRAFT / MOB ARCHIVE</p>
+
+      <!-- หัวข้อหลัก -->
+      <h1>MOB COLLECTION</h1>
+
+      <!-- คำอธิบายเว็บไซต์ -->
+      <p class="lead">
+        เว็บไซต์รวบรวมและจัดหมวดหมู่ม็อบต่าง ๆ
+        ภายในเกม Minecraft เพื่อให้สามารถค้นหา
+        และศึกษาข้อมูลของม็อบแต่ละประเภทได้ง่ายขึ้น ตอนนี้เป็นแค่ส่วนหนึ่งเท่านั้นกำลังอัพเข้ามา 0.1
+      </p>
+
+      <!-- ปุ่มกรองประเภทม็อบ -->
+      <ul class="filters">
+        <li><a class="active" href="#collection" data-filter="all">ALL MOBS</a></li>
+        <li><a href="#collection" data-filter="passive">PASSIVE</a></li>
+        <li><a href="#collection" data-filter="neutral">NEUTRAL</a></li>
+        <li><a href="#collection" data-filter="hostile">HOSTILE</a></li>
+        <li><a href="#collection" data-filter="boss">BOSS</a></li>
+      </ul>
+
+    </section>
 
 
+    <!-- ==========================================
+         04 · FEATURED MOB | Creeper ตัวเด่น
+         ========================================== -->
+
+    <section class="featured">
+
+      <!-- รูป Creeper ตัวใหญ่ -->
+      <div class="featured-image">
+        <img src="images/creeper.png" alt="Minecraft Creeper">
+      </div>
+
+      <!-- ข้อมูล Creeper -->
+      <div class="featured-text">
+
+        <p class="eyebrow">FEATURED MOB / HOSTILE</p>
+
+        <h2>CREEPER</h2>
+
+        <p>
+          Creeper เป็นม็อบศัตรูที่พบได้ในโลก Overworld
+          มีลักษณะเด่นคือเคลื่อนที่เข้าหาผู้เล่นอย่างเงียบ ๆ
+          และจะระเบิดเมื่อเข้าใกล้ผู้เล่นมากเกินไป
+        </p>
+
+        <!-- ค่าสถานะ Creeper -->
+        <ul class="meta">
+          <li>
+            <b>HP</b>
+            20
+          </li>
+          <li>
+            <b>TYPE</b>
+            HOSTILE
+          </li>
+          <li>
+            <b>LOCATION</b>
+            OVERWORLD
+          </li>
+        </ul>
+
+      </div>
+
+    </section>
 
 
+    <!-- ==========================================
+         05 · MOB COLLECTION | ม็อบทั้งหมด
+         ========================================== -->
+
+    <section class="gallery" id="collection">
+
+      <!-- หัวข้อ Gallery -->
+      <h2 class="section-title">ALL MOBS</h2>
+
+      <!-- ช่องค้นหาม็อบ -->
+      <div class="search-box">
+        <input
+          type="search"
+          id="mob-search"
+          placeholder="Search mobs..."
+          aria-label="ค้นหาชื่อม็อบ"
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- ข้อความเมื่อไม่พบม็อบ -->
+      <p class="no-results" id="no-results" hidden>
+        ไม่พบม็อบที่ค้นหา
+      </p>
 
 
+      <!-- ========================================
+           MOB GRID | พื้นที่แสดงการ์ดม็อบ 12 ตัว
+           ======================================== -->
+
+      <div class="grid">
+
+        <!-- 01 · ZOMBIE | HOSTILE -->
+        <figure class="card" data-category="hostile">
+          <img src="images/zombie.png" alt="Minecraft Zombie">
+
+          <figcaption>
+            <span class="no">HOSTILE</span>
+            <h3>Zombie</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>20 (10 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld (บริเวณมืด)</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
 
 
+        <!-- 02 · CREEPER | HOSTILE -->
+        <figure class="card" data-category="hostile">
+          <img src="images/creeper.png" alt="Minecraft Creeper">
+
+          <figcaption>
+            <span class="no">HOSTILE</span>
+            <h3>Creeper</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>20 (10 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld (บริเวณมืด)</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
 
 
+        <!-- 03 · PIG | PASSIVE -->
+        <figure class="card" data-category="passive">
+          <img src="images/pig.png" alt="Minecraft Pig">
+
+          <figcaption>
+            <span class="no">PASSIVE</span>
+            <h3>Pig</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>10 (5 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld (ทุ่งหญ้า)</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
 
 
+        <!-- 04 · COW | PASSIVE -->
+        <figure class="card" data-category="passive">
+          <img src="images/cow.png" alt="Minecraft Cow">
+
+          <figcaption>
+            <span class="no">PASSIVE</span>
+            <h3>Cow</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>10 (5 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld (ทุ่งหญ้า)</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
 
 
+        <!-- 05 · ENDERMAN | NEUTRAL -->
+        <figure class="card" data-category="neutral">
+          <img src="images/enderman.png" alt="Minecraft Enderman">
+
+          <figcaption>
+            <span class="no">NEUTRAL</span>
+            <h3>Enderman</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>40 (20 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld / Nether / The End</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
 
 
+        <!-- 06 · ENDER DRAGON | BOSS -->
+        <figure class="card" data-category="boss">
+          <img src="images/ender dragon.png" alt="Minecraft Ender Dragon">
+
+          <figcaption>
+            <span class="no">BOSS</span>
+            <h3>Ender Dragon</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>200 (100 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>The End</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
 
 
+        <!-- 07 · WITHER | BOSS -->
+        <figure class="card" data-category="boss">
+          <img src="images/wither.png" alt="Minecraft Wither">
+
+          <figcaption>
+            <span class="no">BOSS</span>
+            <h3>Wither</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>300 (150 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>ผู้เล่นอัญเชิญ</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
 
 
+        <!-- 08 · WITCH | HOSTILE -->
+        <figure class="card" data-category="hostile">
+          <img src="images/witch.png" alt="Minecraft Witch">
+
+          <figcaption>
+            <span class="no">HOSTILE</span>
+            <h3>Witch</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>26 (13 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld / กระท่อมแม่มด</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
 
 
+        <!-- 09 · SPIDER | NEUTRAL -->
+        <figure class="card" data-category="neutral">
+          <img src="images/spider.png" alt="Minecraft Spider">
+
+          <figcaption>
+            <span class="no">NEUTRAL</span>
+            <h3>Spider</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>16 (8 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
 
 
+        <!-- 10 · CHICKEN | PASSIVE -->
+        <figure class="card" data-category="passive">
+          <img src="images/chicken.png" alt="Minecraft Chicken">
 
+          <figcaption>
+            <span class="no">PASSIVE</span>
+            <h3>Chicken</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>4 (2 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld (ทุ่งหญ้า)</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+
+
+        <!-- 11 · SHEEP | PASSIVE -->
+        <figure class="card" data-category="passive">
+          <img src="images/sheep.png" alt="Minecraft Sheep">
+
+          <figcaption>
+            <span class="no">PASSIVE</span>
+            <h3>Sheep</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>8 (4 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld (ทุ่งหญ้า)</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+
+
+        <!-- 12 · SKELETON | HOSTILE -->
+        <figure class="card" data-category="hostile">
+          <img src="images/skeleton.png" alt="Minecraft Skeleton">
+
+          <figcaption>
+            <span class="no">HOSTILE</span>
+            <h3>Skeleton</h3>
+
+            <div class="mob-details">
+              <div class="mob-info">
+                <span>HP</span>
+                <strong>20 (10 หัวใจ)</strong>
+              </div>
+              <div class="mob-info">
+                <span>สถานที่พบ</span>
+                <strong>Overworld (บริเวณมืด)</strong>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+
+      </div>
+      <!-- END · MOB GRID -->
+
+    </section>
+    <!-- END · MOB COLLECTION -->
+
+
+    <!-- ==========================================
+         06 · ABOUT | ข้อมูลเกี่ยวกับเว็บไซต์
+         ========================================== -->
+
+    <section class="about" id="about">
+
+      <p class="eyebrow">ABOUT / THE PROJECT</p>
+
+      <h2>ABOUT THIS COLLECTION</h2>
+
+      <!-- คำอธิบายโปรเจกต์ -->
+      <p class="about-description">
+        Minecraft Mob Collection เป็นเว็บไซต์ที่รวบรวมข้อมูล
+        ม็อบภายในเกม Minecraft โดยจัดแบ่งตามประเภทต่าง ๆ
+        เพื่อให้ผู้ที่สนใจสามารถค้นหาและศึกษาข้อมูล
+        ของม็อบแต่ละตัวได้ง่ายขึ้น
+      </p>
+
+      <!-- การ์ดสถิติ 3 ใบ -->
+      <div class="about-stats">
+
+        <div class="about-stat">
+          <span>12</span>
+          <p>MOBS</p>
+        </div>
+
+        <div class="about-stat">
+          <span>04</span>
+          <p>CATEGORIES</p>
+        </div>
+
+        <div class="about-stat">
+          <span>01</span>
+          <p>COLLECTION</p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+  <!-- END · MAIN -->
+
+
+  <!-- ==========================================
+       07 · FOOTER | ข้อมูลผู้จัดทำ
+       ========================================== -->
+
+  <footer class="site-footer">
+    <p>[นายพงสธร ป้อมบุบผา] · [68066551]</p>
+    <p>GAD23867 Coding for Graphic Design · ข้อมูลในหน้านี้เป็นตัวอย่างสมมติ</p>
+  </footer>
+
+
+  <!-- ==========================================
+       08 · JAVASCRIPT | ระบบค้นหาและกรองม็อบ
+       ========================================== -->
+
+  <script>
+
+    /* ------------------------------------------
+       01 · เลือก Element ที่ JavaScript ต้องใช้
+       ------------------------------------------ */
+
+    const filterButtons = document.querySelectorAll(".filters a");
+    const mobCards = document.querySelectorAll(".card");
+    const featuredMob = document.querySelector(".featured");
+    const searchInput = document.querySelector("#mob-search");
+    const noResults = document.querySelector("#no-results");
+
+
+    /* ------------------------------------------
+       02 · ตั้งค่าหมวดหมู่เริ่มต้น
+       ------------------------------------------ */
+
+    let selectedCategory = "all";
+
+
+    /* ------------------------------------------
+       03 · ฟังก์ชันค้นหาและกรองม็อบ
+       ------------------------------------------ */
+
+    function updateMobDisplay() {
+
+      // อ่านคำค้นหาที่ผู้ใช้พิมพ์
+      const searchText = searchInput.value.trim().toLowerCase();
+
+      // จำนวนม็อบที่ตรงเงื่อนไข
+      let visibleCount = 0;
+
+      // ตรวจสอบการ์ดม็อบทีละใบ
+      mobCards.forEach(function(card) {
+
+        // ประเภทและชื่อของม็อบ
+        const mobCategory = card.dataset.category;
+        const mobName = card.querySelector("h3").textContent.toLowerCase();
+
+        // ตรวจสอบว่าตรงกับหมวดหมู่หรือไม่
+        const matchCategory =
+          selectedCategory === "all" ||
+          selectedCategory === mobCategory;
+
+        // ตรวจสอบว่าชื่อตรงกับคำค้นหาหรือไม่
+        const matchSearch = mobName.includes(searchText);
+
+        // แสดงเฉพาะม็อบที่ตรงทั้งสองเงื่อนไข
+        if (matchCategory && matchSearch) {
+          card.style.display = "";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+      // แสดงข้อความเมื่อไม่พบม็อบ
+      noResults.hidden = visibleCount > 0;
+
+      // แสดง Featured Creeper เฉพาะตอน ALL MOBS
+      // และช่องค้นหาว่างอยู่
+      if (selectedCategory === "all" && searchText === "") {
+        featuredMob.style.display = "";
+      } else {
+        featuredMob.style.display = "none";
+      }
+
+    }
+
+
+    /* ------------------------------------------
+       04 · ระบบปุ่มกรองหมวดหมู่
+       ------------------------------------------ */
+
+    filterButtons.forEach(function(button) {
+
+      button.addEventListener("click", function() {
+
+        // อ่านประเภทจากปุ่มที่กด
+        selectedCategory = button.dataset.filter;
+
+        // ลบ active จากปุ่มทั้งหมด
+        filterButtons.forEach(function(item) {
+          item.classList.remove("active");
+        });
+
+        // เพิ่ม active ให้ปุ่มปัจจุบัน
+        button.classList.add("active");
+
+        // อัปเดตม็อบที่แสดง
+        updateMobDisplay();
+
+      });
+
+    });
+
+
+    /* ------------------------------------------
+       05 · ระบบค้นหาชื่อม็อบ
+       ------------------------------------------ */
+
+    searchInput.addEventListener("input", function() {
+      updateMobDisplay();
+    });
+
+
+    /* ------------------------------------------
+       06 · ระบบรีเซ็ตเมื่อกด HOME
+       ------------------------------------------ */
+
+    document.querySelectorAll('a[href="#home"]').forEach(function(link) {
+
+      link.addEventListener("click", function() {
+
+        // กลับไปแสดงม็อบทุกประเภท
+        selectedCategory = "all";
+
+        // ล้างคำค้นหา
+        searchInput.value = "";
+
+        // ลบ active ของตัวกรองทั้งหมด
+        filterButtons.forEach(function(item) {
+          item.classList.remove("active");
+        });
+
+        // เปิดใช้งานปุ่ม ALL MOBS
+        document.querySelector('[data-filter="all"]').classList.add("active");
+
+        // อัปเดตการแสดงผล
+        updateMobDisplay();
+
+      });
+
+    });
+
+
+    /* ------------------------------------------
+       07 · เรียกใช้งานเมื่อเปิดเว็บไซต์
+       ------------------------------------------ */
+
+    updateMobDisplay();
+
+  </script>
 
 </body>
 </html>
